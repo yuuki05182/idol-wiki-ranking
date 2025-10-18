@@ -1,7 +1,7 @@
 import pandas as pd
 import json
 from jinja2 import Template
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
 # CSV読み込み関数
 def load_csv(group, days):
@@ -103,7 +103,8 @@ for group in ["groupA", "groupB"]:
 days_labels = {days: get_days_label(days) for days in [1, 7, 30]}
 
 # 更新日時を取得
-last_updated = datetime.now().strftime("%Y年%m月%d日 %H:%M:%S")
+JST = timezone(timedelta(hours=9))
+last_updated = datetime.now(JST).strftime("%Y年%m月%d日 %H:%M:%S")
 
 # HTML生成
 html = template.render(
