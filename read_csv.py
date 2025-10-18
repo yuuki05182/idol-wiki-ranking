@@ -72,7 +72,7 @@ template = Template("""
 
         @media screen and (max-width: 600px) {
             body {
-                padding: 1em;
+                padding: 0.5em;
             }
             table {
                 font-size: 0.9em;
@@ -88,7 +88,7 @@ template = Template("""
     {% for days in [1, 7, 30] %}
         <h2>日本語版 {{ days_labels[days] }}（{{ date_labels[days] }}）</h2>
         <div class="table-wrapper">
-    {{ tables['groupA'][days]['en'] | safe }}
+    {{ tables['groupA'][days]['ja'] | safe }}
 </div>
 
 
@@ -102,12 +102,12 @@ template = Template("""
     {% for days in [1, 7, 30] %}
         <h2>日本語版 {{ days_labels[days] }}（{{ date_labels[days] }}）</h2>
         <div class="table-wrapper">
-    {{ tables['groupA'][days]['en'] | safe }}
+    {{ tables['groupB'][days]['ja'] | safe }}
 </div>
 
         <h2>英語版 {{ days_labels[days] }}（{{ date_labels[days] }}）</h2>
         <div class="table-wrapper">
-    {{ tables['groupA'][days]['en'] | safe }}
+    {{ tables['groupB'][days]['en'] | safe }}
 </div>
     {% endfor %}
 </body>
