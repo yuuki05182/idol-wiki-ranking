@@ -54,12 +54,14 @@ template = Template("""
         table {
             border-collapse: collapse;
             width: 100%;
-            min-width: 400px;
+            min-width: 300px; /* ← 少し狭くして横スクロールを防ぐ */
+            table-layout: fixed; /* ← 列幅を均等にする */
         }
 
         th, td {
             border: 1px solid #ccc;
             padding: 8px;
+            text-align: center; /* ← 追加：中央揃え */        
         }
 
         th {
