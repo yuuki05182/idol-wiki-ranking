@@ -34,39 +34,81 @@ template = Template("""
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wikipedia閲覧数ランキング</title>
     <style>
-        body { font-family: sans-serif; padding: 2em; }
+        body {
+            font-family: sans-serif;
+            padding: 2em;
+            margin: 0;
+        }
+
         h1 { margin-top: 2em; }
         h2 { margin-top: 1.5em; }
-        table { border-collapse: collapse; width: 100%; margin-bottom: 1em; }
-        th, td { border: 1px solid #ccc; padding: 8px; }
-        th { background-color: #f2f2f2; }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin-bottom: 1em;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 400px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
 
         .day-1 { background-color: #e6f4e6; }
         .day-7 { background-color: #e6f0fa; }
         .day-30 { background-color: #fae6e6; }
+
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 1em;
+            }
+            table {
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
+
 <body>
     <p>最終更新: {{ last_updated }}</p>
 
     <h1>グループA</h1>
     {% for days in [1, 7, 30] %}
         <h2>日本語版 {{ days_labels[days] }}（{{ date_labels[days] }}）</h2>
-        {{ tables['groupA'][days]['ja'] | safe }}
+        <div class="table-wrapper">
+    {{ tables['groupA'][days]['en'] | safe }}
+</div>
+
 
         <h2>英語版 {{ days_labels[days] }}（{{ date_labels[days] }}）</h2>
-        {{ tables['groupA'][days]['en'] | safe }}
+        <div class="table-wrapper">
+    {{ tables['groupA'][days]['en'] | safe }}
+</div>
     {% endfor %}
 
     <h1>グループB</h1>
     {% for days in [1, 7, 30] %}
         <h2>日本語版 {{ days_labels[days] }}（{{ date_labels[days] }}）</h2>
-        {{ tables['groupB'][days]['ja'] | safe }}
+        <div class="table-wrapper">
+    {{ tables['groupA'][days]['en'] | safe }}
+</div>
 
         <h2>英語版 {{ days_labels[days] }}（{{ date_labels[days] }}）</h2>
-        {{ tables['groupB'][days]['en'] | safe }}
+        <div class="table-wrapper">
+    {{ tables['groupA'][days]['en'] | safe }}
+</div>
     {% endfor %}
 </body>
 </html>
