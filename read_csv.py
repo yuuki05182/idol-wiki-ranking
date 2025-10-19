@@ -171,7 +171,6 @@ for group in ["groupA", "groupB"]:
     # 日数ラベルを構築
 days_labels = {days: get_days_label(days) for days in [1, 7, 30]}
 
-    # 更新日時を取得
 JST = timezone(timedelta(hours=9))
 last_updated = datetime.now(JST).strftime("%Y年%m月%d日 %H:%M:%S")
 
