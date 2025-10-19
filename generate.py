@@ -102,7 +102,7 @@ def format_date_range(start, end):
         return f"{d.year}年{d.month}月{d.day}日（{weekday}）"
     return {
         "start": format(start),
-        "end": format(end)
+        "end": format(end + timedelta(days=1))
     }
 
 # 一昨日を基準に各期間を取得

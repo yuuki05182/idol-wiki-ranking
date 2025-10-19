@@ -18,7 +18,7 @@ def get_day_class(days):
     # 日数に応じた説明ラベルを返す関数
 def get_days_label(days):
         return {
-            1: "一昨日",
+            1: "1日",
             7: "7日間",
             30: "30日間"
         }.get(days, f"{days}日間")
@@ -88,7 +88,7 @@ template = Template("""
 
 <h1>グループA</h1>
 {% for days in [1, 7, 30] %}
-    <h2>日本語版</h2>
+    <h2>日本語版（{{ days_labels[days] }}）</h2>
     <p style="font-size:1em; margin-top:-1em; margin-bottom:1em; color:#444;">
     集計期間：{{ date_labels[days]['start'] }}9時00分 〜 {{ date_labels[days]['end'] }}8時59分
 </p>
@@ -96,7 +96,7 @@ template = Template("""
         {{ tables['groupA'][days]['ja'] | safe }}
     </div>
 
-    <h2>英語版</h2>
+    <h2>英語版（{{ days_labels[days] }}）</h2>
     <p style="font-size:1em; margin-top:-1em; margin-bottom:1em; color:#444;">
     集計期間：{{ date_labels[days]['start'] }}9時00分 〜 {{ date_labels[days]['end'] }}8時59分
 </p>
@@ -107,7 +107,7 @@ template = Template("""
 
 <h1>グループB</h1>
 {% for days in [1, 7, 30] %}
-    <h2>日本語版</h2>
+    <h2>日本語版（{{ days_labels[days] }}）</h2>
     <p style="font-size:1em; margin-top:-1em; margin-bottom:1em; color:#444;">
     集計期間：{{ date_labels[days]['start'] }}9時00分 〜 {{ date_labels[days]['end'] }}8時59分
 </p>
@@ -115,7 +115,7 @@ template = Template("""
         {{ tables['groupB'][days]['ja'] | safe }}
     </div>
 
-    <h2>英語版</h2>
+    <h2>英語版（{{ days_labels[days] }}）</h2>
     <p style="font-size:1em; margin-top:-1em; margin-bottom:1em; color:#444;">
     集計期間：{{ date_labels[days]['start'] }}9時00分 〜 {{ date_labels[days]['end'] }}8時59分
 </p>
