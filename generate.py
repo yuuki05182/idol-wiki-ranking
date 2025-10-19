@@ -100,10 +100,10 @@ def format_date_range(start, end):
     def format(d):
         weekday = "月火水木金土日"[d.weekday()]
         return f"{d.year}年{d.month}月{d.day}日（{weekday}）"
-    if start == end:
-        return format(end)
-    else:
-        return f"{format(start)}～{format(end)}"
+    return {
+        "start": format(start),
+        "end": format(end)
+    }
 
 # 一昨日を基準に各期間を取得
 date_labels = {}
