@@ -35,6 +35,7 @@ template = Template("""
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
         <title>Wikipedia閲覧数ランキング</title>
         <style>
             body {
