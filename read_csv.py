@@ -85,6 +85,9 @@ template = Template("""
 
     <body>
         <p>最終更新: {{ last_updated }}</p>
+        <p style="font-size:0.9em; color:#666;">
+    ※ 閲覧数は各日付の <strong>当日9:00〜翌日8:59</strong>（日本時間）に集計されたデータです。
+</p>
 
         <h1>グループA</h1>
         {% for days in [1, 7, 30] %}
