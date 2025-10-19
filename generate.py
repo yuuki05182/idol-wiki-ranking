@@ -122,10 +122,14 @@ for days in [1, 7, 30]:
 
     date_labels[days] = format_date_range(start, end)
 
+JST = timezone(timedelta(hours=9))
+last_updated = datetime.now(JST).strftime("%Y年%m月%d日 %H:%M:%S")
+
 # 日付ラベルを保存
 with open("date_labels.json", "w", encoding="utf-8") as f:
     json.dump(date_labels, f, ensure_ascii=False, indent=2)
 
-# 更新日時を保存
+# 更新日時を保存（統一された変数を使用）
 with open("last_updated.txt", "w", encoding="utf-8") as f:
-    f.write(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    f.write(last_updated)
+
