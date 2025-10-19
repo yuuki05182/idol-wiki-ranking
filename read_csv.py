@@ -90,16 +90,16 @@ template = Template("""
 {% for days in [1, 7, 30] %}
     <h2>日本語版</h2>
     <p style="font-size:1em; margin-top:-1em; margin-bottom:1em; color:#444;">
-        {{ date_labels[days]['start'] }}9時00分から{{ date_labels[days]['end'] }}8時59分
-        </p>
+    集計期間：{{ date_labels[days]['start'] }}9時00分 〜 {{ date_labels[days]['end'] }}8時59分
+</p>
     <div class="table-wrapper">
         {{ tables['groupA'][days]['ja'] | safe }}
     </div>
 
     <h2>英語版</h2>
     <p style="font-size:1em; margin-top:-1em; margin-bottom:1em; color:#444;">
-   {{ date_labels[days]['start'] }}9時00分から{{ date_labels[days]['end'] }}8時59分
-        </p>
+    集計期間：{{ date_labels[days]['start'] }}9時00分 〜 {{ date_labels[days]['end'] }}8時59分
+</p>
     <div class="table-wrapper">
         {{ tables['groupA'][days]['en'] | safe }}
     </div>
@@ -109,16 +109,16 @@ template = Template("""
 {% for days in [1, 7, 30] %}
     <h2>日本語版</h2>
     <p style="font-size:1em; margin-top:-1em; margin-bottom:1em; color:#444;">
-    {{ date_labels[days]['start'] }}9時00分から{{ date_labels[days]['end'] }}8時59分
-        </p>
+    集計期間：{{ date_labels[days]['start'] }}9時00分 〜 {{ date_labels[days]['end'] }}8時59分
+</p>
     <div class="table-wrapper">
         {{ tables['groupB'][days]['ja'] | safe }}
     </div>
 
     <h2>英語版</h2>
     <p style="font-size:1em; margin-top:-1em; margin-bottom:1em; color:#444;">
-    {{ date_labels[days]['start'] }}9時00分から{{ date_labels[days]['end'] }}8時59分
-        </p>
+    集計期間：{{ date_labels[days]['start'] }}9時00分 〜 {{ date_labels[days]['end'] }}8時59分
+</p>
     <div class="table-wrapper">
         {{ tables['groupB'][days]['en'] | safe }}
     </div>
