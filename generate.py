@@ -3,7 +3,7 @@ import pandas as pd
 import json
 import time
 from urllib.parse import urlparse, unquote, quote
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta,timezone
 
 HEADERS = {
     "User-Agent": "WikiViewBot/1.0 (your.email@example.com)"
@@ -70,12 +70,16 @@ def get_views(project, url, start, end):
     api = f"https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/{project}/all-access/all-agents/{title}/daily/{start_str}/{end_str}"
     time.sleep(0.5)
     r = requests.get(api, headers=HEADERS)
+    
     if r.status_code == 200:
         data = r.json()
+        if not data["items"]:
+            print(f"閲覧数ゼロ: {title} ({project}) → {start_str}〜{end_str}")
+            return 0
         return sum(item["views"] for item in data["items"])
     else:
         print(f"取得失敗: {title} ({project}) → {r.status_code}")
-        return None
+        return 0
 
 # グループごとのランキング表を作成
 def build_table(group, start, end):
@@ -103,7 +107,8 @@ def format_date_range(start, end):
 
 # 一昨日を基準に各期間を取得
 date_labels = {}
-base_end = datetime.today() - timedelta(days=2)
+JST = timezone(timedelta(hours=9))
+base_end = datetime.now(JST).date() - timedelta(days=2)
 
 for days in [1, 7, 30]:
     end = base_end
