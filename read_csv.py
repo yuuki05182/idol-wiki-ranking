@@ -89,7 +89,7 @@ template = Template("""
 <h1>グループA</h1>
 {% for days in [1, 7, 30] %}
     <h2>日本語版</h2>
-    <p style="font-size:0.9em; margin-top:-1em; margin-bottom:1em; color:#444;">
+    <p style="font-size:1em; margin-top:-1em; margin-bottom:1em; color:#444;">
         {{ date_labels[days]['start'] }}9時00分から{{ date_labels[days]['end'] }}8時59分
         </p>
     <div class="table-wrapper">
@@ -97,8 +97,8 @@ template = Template("""
     </div>
 
     <h2>英語版</h2>
-    <p style="font-size:0.9em; margin-top:-1em; margin-bottom:1em; color:#444;">
-        {{ date_labels[days]['start'] }}9時00分から{{ date_labels[days]['end'] }}8時59分
+    <p style="font-size:1em; margin-top:-1em; margin-bottom:1em; color:#444;">
+   {{ date_labels[days]['start'] }}9時00分から{{ date_labels[days]['end'] }}8時59分
         </p>
     <div class="table-wrapper">
         {{ tables['groupA'][days]['en'] | safe }}
@@ -108,16 +108,16 @@ template = Template("""
 <h1>グループB</h1>
 {% for days in [1, 7, 30] %}
     <h2>日本語版</h2>
-    <p style="font-size:0.9em; margin-top:-1em; margin-bottom:1em; color:#444;">
-        {{ date_labels[days]['start'] }}9時00分から{{ date_labels[days]['end'] }}8時59分
+    <p style="font-size:1em; margin-top:-1em; margin-bottom:1em; color:#444;">
+    {{ date_labels[days]['start'] }}9時00分から{{ date_labels[days]['end'] }}8時59分
         </p>
     <div class="table-wrapper">
         {{ tables['groupB'][days]['ja'] | safe }}
     </div>
 
     <h2>英語版</h2>
-    <p style="font-size:0.9em; margin-top:-1em; margin-bottom:1em; color:#444;">
-        {{ date_labels[days]['start'] }}9時00分から{{ date_labels[days]['end'] }}8時59分
+    <p style="font-size:1em; margin-top:-1em; margin-bottom:1em; color:#444;">
+    {{ date_labels[days]['start'] }}9時00分から{{ date_labels[days]['end'] }}8時59分
         </p>
     <div class="table-wrapper">
         {{ tables['groupB'][days]['en'] | safe }}
