@@ -38,7 +38,7 @@ group_b = {
         "ja": "https://ja.wikipedia.org/wiki/ILLIT",
         "en": "https://en.wikipedia.org/wiki/Illit"
     },
-    "ルセラフィム": {
+    "LE SSERAFIM": {
         "ja": "https://ja.wikipedia.org/wiki/LE_SSERAFIM",
         "en": "https://en.wikipedia.org/wiki/Le_Sserafim"
     },
